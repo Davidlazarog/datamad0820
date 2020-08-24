@@ -41,11 +41,11 @@ c = b.reshape((2,3,5))
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 ''' Si se puede porque el numero de elementos coincide en cada una de las dimensiones'''
 
-d = np.concatenate([a,b])
+d = sum([a,c])
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
+'''La unica diferencia entre uno y otro es una unidad (valor de cada uno de los parametros de a) que se le suma en cada uno de los valores de d.'''
 print(a)
 print(d)
 
@@ -74,22 +74,38 @@ f = np.empty(d.shape)
 
 
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
-'''
-If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
+
+
+'''If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
 If a value equals to d_mean, assign 50 to the corresponding value in f.
 Assign 0 to the corresponding value(s) in f for d_min in d.
 Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
-Note: you don't have to use Numpy in this question.
-'''
+Note: you dont have to use Numpy in this question.'''
 
-for i in d :
-    if 
+f2 = d.flatten()
+f3 = []
+
+for i in f2:
+        if d_min < i < d_mean:
+                f3.append(25)
+        elif d_mean < i < d_max:
+                f3.append(75)
+        elif i == d_mean:
+                f3.append(50)
+        elif i == d_min:
+                f3.append(0) 
+        elif i == d_max:
+                f3.append(100)
+
+f = np.array(f3).reshape(2,3,5)
 
 
-"""
+
+
+
 #17. Print d and f. Do you have your expected f?
-For instance, if your d is:
+'''For instance, if your d is:
 array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931],
         [1.75354326, 1.69403643, 1.36729252, 1.61415071, 1.12104981],
         [1.72201435, 1.1862918 , 1.87078449, 1.7726778 , 1.88180042]],
@@ -105,13 +121,15 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
 
        [[ 25.,  25.,  25.,  25., 100.],
         [ 75.,  75.,  75.,  75.,  75.],
-        [ 25.,  75.,   0.,  75.,  75.]]])
-"""
+        [ 25.,  75.,   0.,  75.,  75.]]])'''
+
+print(b)
+print(f)
 
 
-"""
+
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
-("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
+'''("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
 array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'D',  'D',  'B',  'B',  'B'],
         [ 'D',  'B',  'D',  'D',  'D']],
@@ -119,5 +137,22 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
        [[ 'B',  'B',  'B',  'B',  'E'],
         [ 'D',  'D',  'D',  'D',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
-Again, you don't need Numpy in this question.
-"""
+Again, you don't need Numpy in this question.'''
+
+f2 = d.flatten()
+f3 = []
+
+for i in f2:
+        if d_min < i < d_mean:
+                f3.append("A")
+        elif d_mean < i < d_max:
+                f3.append("B")
+        elif i == d_mean:
+                f3.append("C")
+        elif i == d_min:
+                f3.append("D") 
+        elif i == d_max:
+                f3.append("E")
+
+f = np.array(f3).reshape(2,3,5)
+print(f)
