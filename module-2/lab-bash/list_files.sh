@@ -55,6 +55,20 @@ mkdir $name
 #Ejercicio 24
 rmdir $name
 #Ejercicio 25 
+#25.1 
+for file in $(ls lorem/):
+for> echo item $file
+#25.2
+for file in $(ls lorem/):      
+for> echo item $#file
+#25.3
+for file in $(ls lorem/):
+for> printf "%s has %s characters length\n" "$file" "${#file}" 
 
+# he recibido ayuda aqui, se que no se puede pero casi puede conmigo. 
+# no entiendo porque no funciona asi, si deberia de ser lo mismo. 
+# printf "("$file" has "${#file}" characters length\n")
 
 #Ejercicio 26 
+top
+#Ejercicio 27 
