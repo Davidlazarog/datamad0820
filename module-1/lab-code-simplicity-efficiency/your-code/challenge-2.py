@@ -15,7 +15,7 @@ def RandomStringGenerator(l=12, a=['a','b','c','d','e','f','g','h','i','j','k','
         s += random.choice(a)
         p += 1
     return s
-
+"""
 def BatchStringGenerator(n, a=8, b=12):
     r = []
     for i in range(n):
@@ -30,9 +30,19 @@ def BatchStringGenerator(n, a=8, b=12):
             sys.exit('Incorrect min and max string lengths. Try again.')
         r.append(RandomStringGenerator(c))
     return r
-
+"""
 a = input('Enter minimum string length: ')
 b = input('Enter maximum string length: ')
 n = input('How many random strings to generate? ')
 
-print(BatchStringGenerator(int(n), int(a), int(b)))
+def funn(a,b,n):
+    r = []
+    for i in range(int(n)):
+        if int(b)<int(a) : 
+            return 'Incorrect min and max string lengths. Try again.'
+        else: 
+            c = random.choice(range(a, b))
+        r.append(RandomStringGenerator(c))
+        return r
+print(funn(int(a),int(b),int(n)))
+
